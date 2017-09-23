@@ -1,0 +1,24 @@
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<TabPane fx:id="main" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+    <tabs>
+        <Tab fx:id="smpViewTab" text="双面盘" closable="false">
+            <fx:include fx:id="smpView" source="smpView.fxml"/>
+        </Tab>
+        <Tab fx:id="firstSecondViewTab" text="冠亚军" closable="false">
+            <fx:include fx:id="firstSecondView" source="firstSecondView.fxml"/>
+        </Tab>
+        <Tab fx:id="thirdFourthViewTab" text="三四名" closable="false">
+            <fx:include fx:id="thirdFourthView" source="thirdFourthView.fxml"/>
+        </Tab>
+        <Tab fx:id="fifthSixthViewTab" text="五六名" closable="false">
+            <fx:include fx:id="fifthSixthView" source="fifthSixthView.fxml"/>
+        </Tab>
+        <Tab fx:id="seventhEighthViewTab" text="七八名" closable="false">
+            <fx:include fx:id="seventhEighthView" source="seventhEighthView.fxml"/>
+        </Tab>
+        <Tab fx:id="ninethTenthViewTab" text="九十名" closable="false">
+            <fx:include fx:id="ninethTenthView" source="ninethTenthView.fxml"/>
+        </Tab>
+    </tabs>
+</TabPane>
