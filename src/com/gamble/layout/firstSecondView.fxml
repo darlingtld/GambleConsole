@@ -32,7 +32,7 @@
                       GridPane.columnIndex="2" GridPane.rowIndex="1"/>
         <Text fx:id="enableStatusText" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="3"
               GridPane.rowIndex="1"/>
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="请选择不投注的数字" GridPane.rowIndex="3"/>
+        <Text fx:id="exText" strokeType="OUTSIDE" strokeWidth="0.0" text="请选择不投注的数字" GridPane.rowIndex="3"/>
         <CheckBox fx:id="ex1" mnemonicParsing="false" onAction="#handleNumExEvent" text="1" GridPane.columnIndex="0"
                   GridPane.rowIndex="4"/>
         <CheckBox fx:id="ex2" mnemonicParsing="false" onAction="#handleNumExEvent" text="2" GridPane.columnIndex="1"

@@ -3,7 +3,6 @@ package com.gamble;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.text.Text;
@@ -20,6 +19,8 @@ public class FirstSecondController {
     public ToggleButton smartMode;
     @FXML
     public Text smartModeStatus;
+    @FXML
+    public Text exText;
     @FXML
     private TextField chip;
     @FXML
@@ -206,12 +207,27 @@ public class FirstSecondController {
     public void handleSmartModeChange(ActionEvent actionEvent) {
         if (smartMode.isSelected()) {
             smartMode.setSelected(true);
-            smartModeStatus.setText("当前为自动探测");
+            toggleDisable(true);
+            smartModeStatus.setText("当前为自动探测(根据之前开奖结果进行下注)");
             HttpUtil.doPost(BASE_URL + "/enable/smart_mode", "");
         } else {
             smartModeStatus.setText("当前为普通模式");
             smartMode.setSelected(false);
+            toggleDisable(false);
             HttpUtil.doPost(BASE_URL + "/disable/smart_mode", "");
         }
+    }
+
+    private void toggleDisable(boolean enable){
+        ex1.setDisable(enable);
+        ex2.setDisable(enable);
+        ex3.setDisable(enable);
+        ex4.setDisable(enable);
+        ex5.setDisable(enable);
+        ex6.setDisable(enable);
+        ex7.setDisable(enable);
+        ex8.setDisable(enable);
+        ex9.setDisable(enable);
+        ex10.setDisable(enable);
     }
 }

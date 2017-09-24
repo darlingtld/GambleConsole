@@ -15,7 +15,10 @@ import java.util.stream.Collectors;
 
 public class NinethTenthController {
     private static final String BASE_URL = "nineth_tenth";
-
+    @FXML
+    public ToggleButton smartMode;
+    @FXML
+    public Text smartModeStatus;
     @FXML
     private TextField chip;
     @FXML
@@ -196,5 +199,32 @@ public class NinethTenthController {
             message.setText("");
         }).start();
 
+    }
+
+    public void handleSmartModeChange(ActionEvent actionEvent) {
+        if (smartMode.isSelected()) {
+            smartMode.setSelected(true);
+            toggleDisable(true);
+            smartModeStatus.setText("当前为自动探测(根据之前开奖结果进行下注)");
+            HttpUtil.doPost(BASE_URL + "/enable/smart_mode", "");
+        } else {
+            smartModeStatus.setText("当前为普通模式");
+            smartMode.setSelected(false);
+            toggleDisable(false);
+            HttpUtil.doPost(BASE_URL + "/disable/smart_mode", "");
+        }
+    }
+
+    private void toggleDisable(boolean enable){
+        ex1.setDisable(enable);
+        ex2.setDisable(enable);
+        ex3.setDisable(enable);
+        ex4.setDisable(enable);
+        ex5.setDisable(enable);
+        ex6.setDisable(enable);
+        ex7.setDisable(enable);
+        ex8.setDisable(enable);
+        ex9.setDisable(enable);
+        ex10.setDisable(enable);
     }
 }
