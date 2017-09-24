@@ -48,6 +48,10 @@ public class SMPController {
     public TextField smpChip10;
     @FXML
     public Text message;
+    @FXML
+    public CheckBox smpDaXiao;
+    @FXML
+    public CheckBox smpDanShuang;
 
     public void handleSMPEnable(ActionEvent actionEvent) {
         if (smpEnable.isSelected()) {
@@ -81,19 +85,33 @@ public class SMPController {
                         smpChip4.getText().trim(), smpChip5.getText().trim(), smpChip6.getText().trim(),
                         smpChip7.getText().trim(), smpChip8.getText().trim(), smpChip9.getText().trim(),
                         smpChip10.getText().trim())));
-        if(code == 200){
+        if (code == 200) {
             message.setText("设置成功");
         } else {
             message.setText("设置失败");
         }
         new Thread(() -> {
             try {
-                Thread.sleep(2000);
+                Thread.sleep(10000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             message.setText("");
         }).start();
 
+    }
+
+    public void handleSMPCategoryChange(ActionEvent actionEvent) {
+        if (smpDaXiao.isSelected()) {
+            HttpUtil.doPost(BASE_URL + "/enable/category/daxiao", "");
+        } else {
+            HttpUtil.doPost(BASE_URL + "/disable/category/daxiao", "");
+        }
+
+        if (smpDanShuang.isSelected()) {
+            HttpUtil.doPost(BASE_URL + "/enable/category/danshuang", "");
+        } else {
+            HttpUtil.doPost(BASE_URL + "/disable/category/danshuang", "");
+        }
     }
 }

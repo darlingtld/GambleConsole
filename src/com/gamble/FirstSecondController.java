@@ -16,7 +16,10 @@ import java.util.stream.Collectors;
 
 public class FirstSecondController {
     private static final String BASE_URL = "first_second";
-
+    @FXML
+    public ToggleButton smartMode;
+    @FXML
+    public Text smartModeStatus;
     @FXML
     private TextField chip;
     @FXML
@@ -184,7 +187,7 @@ public class FirstSecondController {
                         smpChip4.getText().trim(), smpChip5.getText().trim(), smpChip6.getText().trim(),
                         smpChip7.getText().trim(), smpChip8.getText().trim(), smpChip9.getText().trim(),
                         smpChip10.getText().trim())));
-        if(code == 200){
+        if (code == 200) {
             message.setText("设置成功");
         } else {
             message.setText("设置失败");
@@ -198,5 +201,17 @@ public class FirstSecondController {
             message.setText("");
         }).start();
 
+    }
+
+    public void handleSmartModeChange(ActionEvent actionEvent) {
+        if (smartMode.isSelected()) {
+            smartMode.setSelected(true);
+            smartModeStatus.setText("当前为自动探测");
+            HttpUtil.doPost(BASE_URL + "/enable/smart_mode", "");
+        } else {
+            smartModeStatus.setText("当前为普通模式");
+            smartMode.setSelected(false);
+            HttpUtil.doPost(BASE_URL + "/disable/smart_mode", "");
+        }
     }
 }
