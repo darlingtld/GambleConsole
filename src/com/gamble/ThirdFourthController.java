@@ -186,6 +186,10 @@ public class ThirdFourthController {
                         smpChip4.getText().trim(), smpChip5.getText().trim(), smpChip6.getText().trim(),
                         smpChip7.getText().trim(), smpChip8.getText().trim(), smpChip9.getText().trim(),
                         smpChip10.getText().trim())));
+        String levelChips = "当前:" + String.join(" - ",
+                Arrays.asList(smpChip1.getText().trim(), smpChip2.getText().trim(), smpChip3.getText().trim(), smpChip4.getText().trim(), smpChip5.getText().trim())) +
+                "\r\n" +
+                "        " + String.join(" - ", smpChip6.getText().trim(), smpChip7.getText().trim(), smpChip8.getText().trim(), smpChip9.getText().trim(), smpChip10.getText().trim());
         if (code == 200) {
             message.setText("设置成功");
         } else {
@@ -193,11 +197,15 @@ public class ThirdFourthController {
         }
         new Thread(() -> {
             try {
-                Thread.sleep(10000);
+                Thread.sleep(3000);
+                if (code == 200) {
+                    message.setText(levelChips);
+                } else {
+                    message.setText("");
+                }
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            message.setText("");
         }).start();
 
     }
