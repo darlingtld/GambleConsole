@@ -47,11 +47,11 @@
                   GridPane.rowIndex="6"/>
         <CheckBox fx:id="ex10" mnemonicParsing="false" onAction="#handleNumExEvent" text="10"
                   GridPane.columnIndex="4" GridPane.rowIndex="6"/>
-        <TextField fx:id="smpChip1" text="5" GridPane.rowIndex="8"/>
-        <TextField fx:id="smpChip2" text="17" GridPane.columnIndex="1" GridPane.rowIndex="8"/>
-        <TextField fx:id="smpChip3" text="57" GridPane.columnIndex="2" GridPane.rowIndex="8"/>
-        <TextField fx:id="smpChip4" text="193" GridPane.columnIndex="3" GridPane.rowIndex="8"/>
-        <TextField fx:id="smpChip5" text="572" GridPane.columnIndex="4" GridPane.rowIndex="8"/>
+        <TextField fx:id="smpChip1" text="0" GridPane.rowIndex="8"/>
+        <TextField fx:id="smpChip2" text="0" GridPane.columnIndex="1" GridPane.rowIndex="8"/>
+        <TextField fx:id="smpChip3" text="0" GridPane.columnIndex="2" GridPane.rowIndex="8"/>
+        <TextField fx:id="smpChip4" text="0" GridPane.columnIndex="3" GridPane.rowIndex="8"/>
+        <TextField fx:id="smpChip5" text="0" GridPane.columnIndex="4" GridPane.rowIndex="8"/>
         <TextField fx:id="smpChip6" text="0" GridPane.rowIndex="10"/>
         <TextField fx:id="smpChip7" text="0" GridPane.columnIndex="1" GridPane.rowIndex="10"/>
         <TextField fx:id="smpChip8" text="0" GridPane.columnIndex="2" GridPane.rowIndex="10"/>
@@ -69,7 +69,7 @@
         <Label text="第十关" GridPane.columnIndex="4" GridPane.rowIndex="9"/>
         <Button mnemonicParsing="false" onAction="#submitLevelChips" text="确认设置每关金额"
                 GridPane.columnSpan="2" GridPane.rowIndex="11"/>
-        <Text fx:id="message" strokeType="OUTSIDE" strokeWidth="0.0" text="当前：5-17-57-193-573-0-0-0-0-0" GridPane.columnIndex="2"
+        <Text fx:id="message" strokeType="OUTSIDE" strokeWidth="0.0" text="当前：0-0-0-0-0-0-0-0-0-0" GridPane.columnIndex="2"
               GridPane.rowIndex="11"/>
         <ToggleButton fx:id="smartMode" mnemonicParsing="false" onAction="#handleSmartModeChange" text="模式切换"
                       GridPane.rowIndex="2"/>
