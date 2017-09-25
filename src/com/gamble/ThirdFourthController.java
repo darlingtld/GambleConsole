@@ -21,7 +21,7 @@ public class ThirdFourthController {
     @FXML
     public Text smartModeStatus;
     @FXML
-    private TextField chip;
+    public ComboBox smartSwitch;
     @FXML
     private CheckBox ex1;
     @FXML
@@ -89,11 +89,6 @@ public class ThirdFourthController {
             enableStatusText.setText("停止下注");
         }
         HttpUtil.doPost(BASE_URL + "/enable", "");
-    }
-
-    public void handleChipChange(ActionEvent actionEvent) {
-        System.out.println(chip.getText());
-        HttpUtil.doPost(BASE_URL + "/chip", "chip=" + chip.getText());
     }
 
     public void handleNumExEvent(ActionEvent actionEvent) {
@@ -214,7 +209,7 @@ public class ThirdFourthController {
         if (smartMode.isSelected()) {
             smartMode.setSelected(true);
             toggleDisable(true);
-            smartModeStatus.setText("当前为自动探测(根据之前开奖结果进行下注)");
+            smartModeStatus.setText("当前为自动探测");
             HttpUtil.doPost(BASE_URL + "/enable/smart_mode", "");
         } else {
             smartModeStatus.setText("当前为普通模式");
@@ -225,6 +220,7 @@ public class ThirdFourthController {
     }
 
     private void toggleDisable(boolean enable) {
+        smartSwitch.setVisible(enable);
         ex1.setDisable(enable);
         ex2.setDisable(enable);
         ex3.setDisable(enable);
@@ -235,5 +231,11 @@ public class ThirdFourthController {
         ex8.setDisable(enable);
         ex9.setDisable(enable);
         ex10.setDisable(enable);
+    }
+
+    public void handleSmartSwitchChange(ActionEvent actionEvent) {
+        String value = String.valueOf(smartSwitch.getValue());
+        String[] steps = value.split("\\s+")[0].split("-");
+        HttpUtil.doPost(BASE_URL + "/smart_switch", String.format("step1=%s&step2=%s", steps[0], steps[1]));
     }
 }

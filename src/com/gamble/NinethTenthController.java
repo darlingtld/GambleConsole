@@ -3,6 +3,7 @@ package com.gamble;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.text.Text;
@@ -19,6 +20,8 @@ public class NinethTenthController {
     public ToggleButton smartMode;
     @FXML
     public Text smartModeStatus;
+    @FXML
+    public ComboBox smartSwitch;
     @FXML
     private TextField chip;
     @FXML
@@ -213,7 +216,7 @@ public class NinethTenthController {
         if (smartMode.isSelected()) {
             smartMode.setSelected(true);
             toggleDisable(true);
-            smartModeStatus.setText("当前为自动探测(根据之前开奖结果进行下注)");
+            smartModeStatus.setText("当前为自动探测");
             HttpUtil.doPost(BASE_URL + "/enable/smart_mode", "");
         } else {
             smartModeStatus.setText("当前为普通模式");
@@ -224,6 +227,7 @@ public class NinethTenthController {
     }
 
     private void toggleDisable(boolean enable){
+        smartSwitch.setVisible(enable);
         ex1.setDisable(enable);
         ex2.setDisable(enable);
         ex3.setDisable(enable);
@@ -234,5 +238,11 @@ public class NinethTenthController {
         ex8.setDisable(enable);
         ex9.setDisable(enable);
         ex10.setDisable(enable);
+    }
+
+    public void handleSmartSwitchChange(ActionEvent actionEvent) {
+        String value = String.valueOf(smartSwitch.getValue());
+        String[] steps = value.split("\\s+")[0].split("-");
+        HttpUtil.doPost(BASE_URL + "/smart_switch", String.format("step1=%s&step2=%s", steps[0], steps[1]));
     }
 }
