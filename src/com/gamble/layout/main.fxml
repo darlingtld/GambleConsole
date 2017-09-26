@@ -2,6 +2,9 @@
 <?import javafx.scene.control.TabPane?>
 <TabPane fx:id="main" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
     <tabs>
+        <Tab fx:id="configViewTab" text="设置" closable="false">
+            <fx:include fx:id="configView" source="configView.fxml"/>
+        </Tab>
         <Tab fx:id="smpViewTab" text="双面盘" closable="false">
             <fx:include fx:id="smpView" source="smpView.fxml"/>
         </Tab>
