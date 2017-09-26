@@ -91,7 +91,7 @@ public class SeventhEighthController {
             enable.setSelected(false);
             enableStatusText.setText("停止下注");
         }
-        HttpUtil.doPost(BASE_URL + "/enable", "");
+        HttpUtil.doPost(BASE_URL + "/disable", "");
     }
 
     public void handleChipChange(ActionEvent actionEvent) {
