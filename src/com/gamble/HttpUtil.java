@@ -31,9 +31,6 @@ public class HttpUtil {
             wr.close();
 
             int responseCode = con.getResponseCode();
-            System.out.println("\nSending 'POST' request to URL : " + url);
-            System.out.println("Post parameters : " + params);
-            System.out.println("Response Code : " + responseCode);
 
             BufferedReader in = new BufferedReader(
                     new InputStreamReader(con.getInputStream()));
@@ -45,8 +42,6 @@ public class HttpUtil {
             }
             in.close();
 
-            //print result
-            System.out.println(response.toString());
             return responseCode;
         } catch (IOException e) {
             e.printStackTrace();
@@ -66,8 +61,6 @@ public class HttpUtil {
             con.setRequestProperty("User-Agent", USER_AGENT);
 
             int responseCode = con.getResponseCode();
-            System.out.println("\nSending 'GET' request to URL : " + url);
-            System.out.println("Response Code : " + responseCode);
 
             BufferedReader in = new BufferedReader(
                     new InputStreamReader(con.getInputStream()));
@@ -79,8 +72,6 @@ public class HttpUtil {
             }
             in.close();
 
-            //print result
-            System.out.println(response.toString());
             return response.toString();
         } catch (IOException e) {
             e.printStackTrace();
