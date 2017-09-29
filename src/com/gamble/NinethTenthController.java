@@ -82,6 +82,10 @@ public class NinethTenthController {
             enableStatusText.setText("正在下注");
         }
         HttpUtil.doPost(BASE_URL + "/enable", "");
+        HttpUtil.doPost(BASE_URL + "/enable/smart_mode", "");
+        String value = String.valueOf(smartSwitch.getValue());
+        String[] steps = value.split("\\s+")[0].split("-");
+        HttpUtil.doPost(BASE_URL + "/smart_switch", String.format("step1=%s&step2=%s", steps[0], steps[1]));
     }
 
     public void handleDisable(ActionEvent actionEvent) {

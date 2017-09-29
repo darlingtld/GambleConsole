@@ -27,17 +27,6 @@
         <ToggleButton fx:id="enable" mnemonicParsing="false" onAction="#handleEnable" text="开启下注" GridPane.columnIndex="1" GridPane.rowIndex="1" />
         <ToggleButton fx:id="disable" mnemonicParsing="false" onAction="#handleDisable" text="关闭下注" GridPane.columnIndex="2" GridPane.rowIndex="1" />
         <Text fx:id="enableStatusText" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-        <Text fx:id="exText" strokeType="OUTSIDE" strokeWidth="0.0" text="请选择不投注的数字" GridPane.rowIndex="3" />
-        <CheckBox fx:id="ex1" mnemonicParsing="false" onAction="#handleNumExEvent" text="1" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-        <CheckBox fx:id="ex2" mnemonicParsing="false" onAction="#handleNumExEvent" text="2" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-        <CheckBox fx:id="ex3" mnemonicParsing="false" onAction="#handleNumExEvent" text="3" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-        <CheckBox fx:id="ex4" mnemonicParsing="false" onAction="#handleNumExEvent" text="4" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-        <CheckBox fx:id="ex5" mnemonicParsing="false" onAction="#handleNumExEvent" text="5" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-        <CheckBox fx:id="ex6" mnemonicParsing="false" onAction="#handleNumExEvent" text="6" GridPane.columnIndex="0" GridPane.rowIndex="6" />
-        <CheckBox fx:id="ex7" mnemonicParsing="false" onAction="#handleNumExEvent" text="7" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-        <CheckBox fx:id="ex8" mnemonicParsing="false" onAction="#handleNumExEvent" text="8" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-        <CheckBox fx:id="ex9" mnemonicParsing="false" onAction="#handleNumExEvent" text="9" GridPane.columnIndex="3" GridPane.rowIndex="6" />
-        <CheckBox fx:id="ex10" mnemonicParsing="false" onAction="#handleNumExEvent" text="10" GridPane.columnIndex="4" GridPane.rowIndex="6" />
         <TextField fx:id="smpChip1" text="5" GridPane.rowIndex="8" />
         <TextField fx:id="smpChip2" text="0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
         <TextField fx:id="smpChip3" text="0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
@@ -60,15 +49,12 @@
         <Label text="第十关" GridPane.columnIndex="4" GridPane.rowIndex="9" />
         <Button mnemonicParsing="false" onAction="#submitLevelChips" text="确认设置每关金额" GridPane.columnSpan="2" GridPane.rowIndex="11" />
         <Text fx:id="message" strokeType="OUTSIDE" strokeWidth="0.0" text="当前：5-0-0-0-0-0-0-0-0-0" GridPane.columnIndex="2" GridPane.rowIndex="11" />
-        <ToggleButton fx:id="smartMode" mnemonicParsing="false" onAction="#handleSmartModeChange" text="模式切换" GridPane.rowIndex="2" />
-        <Text fx:id="smartModeStatus" strokeType="OUTSIDE" strokeWidth="0.0" text="当前为普通模式" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-        <ComboBox fx:id="smartSwitch" onAction="#handleSmartSwitchChange" visible="false" prefHeight="27.0"
+        <Text fx:id="smartModeStatus" strokeType="OUTSIDE" strokeWidth="0.0" text="当前为自动探测" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <ComboBox fx:id="smartSwitch" onAction="#handleSmartSwitchChange" prefHeight="27.0"
                   prefWidth="160.0" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="2">
             <items>
                 <FXCollections fx:factory="observableArrayList">
                     <String fx:value="1,3,5-6,8,10 对跳"/>
-                    <String fx:value="2,4,6-5,7,9 对跳"/>
-                    <String fx:value="2,6,10-3,7,9 对跳"/>
                 </FXCollections>
             </items>
             <value>
