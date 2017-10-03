@@ -83,6 +83,7 @@
                     <String fx:value="2,4,6-5,7,9 对跳"/>
                     <String fx:value="1,4,7-2,5,8 对跳"/>
                     <String fx:value="1,4,7-3,6,9 对跳"/>
+                    <String fx:value="2,5,8-3,6,9 对跳"/>
                 </FXCollections>
             </items>
             <value>
