@@ -11,7 +11,7 @@ public class HttpUtil {
 
     private static final String USER_AGENT = "Mozilla/5.0";
 
-    private static final String BASE_URL = "http://localhost:8000";
+    private static final String BASE_URL = "http://localhost:26000";
 
     public static int doPost(String url, String params) {
         try {
