@@ -18,13 +18,16 @@ public class ConfigController {
     @FXML
     public TextField lostThreshold;
     @FXML
+    public TextField winThreshold;
+    @FXML
     public Text message;
 
 
     public void handleConfigChange(ActionEvent actionEvent) {
         int code = HttpUtil.doPost(BASE_URL + "/email", "email=" + email.getText());
         int code1 = HttpUtil.doPost(BASE_URL + "/lost_threshold", "lost_threshold=" + lostThreshold.getText());
-        if (code == 200 && code1 == 200) {
+        int code2 = HttpUtil.doPost(BASE_URL + "/win_threshold", "win_threshold=" + winThreshold.getText());
+        if (code == 200 && code1 == 200 && code2 == 200) {
             message.setText("设置成功");
         } else {
             message.setText("设置失败");
