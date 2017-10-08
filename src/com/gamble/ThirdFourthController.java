@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.text.Text;
@@ -26,6 +27,10 @@ public class ThirdFourthController {
     public ComboBox smartSwitch;
     @FXML
     public ComboBox smartDetectRoundNumber;
+    @FXML
+    public ComboBox maxBetCount;
+    @FXML
+    public Label maxBetCountLabel;
     @FXML
     private CheckBox ex1;
     @FXML
@@ -226,6 +231,8 @@ public class ThirdFourthController {
     private void toggleDisable(boolean enable) {
         smartSwitch.setVisible(enable);
         smartDetectRoundNumber.setVisible(enable);
+        maxBetCount.setVisible(!enable);
+        maxBetCountLabel.setVisible(!enable);
         ex1.setDisable(enable);
         ex2.setDisable(enable);
         ex3.setDisable(enable);
@@ -250,5 +257,9 @@ public class ThirdFourthController {
         if (matcher.find()) {
             HttpUtil.doPost(BASE_URL + "/smart_mode_detect_round", "round=" + matcher.group(1));
         }
+    }
+
+    public void handleMaxBetCountChange(ActionEvent actionEvent) {
+        HttpUtil.doPost(BASE_URL + "/max_bet_count", "count=" + maxBetCount.getValue());
     }
 }
