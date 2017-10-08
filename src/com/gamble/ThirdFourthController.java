@@ -11,6 +11,8 @@ import javafx.scene.text.Text;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 
@@ -22,6 +24,8 @@ public class ThirdFourthController {
     public Text smartModeStatus;
     @FXML
     public ComboBox smartSwitch;
+    @FXML
+    public ComboBox smartDetectRoundNumber;
     @FXML
     private CheckBox ex1;
     @FXML
@@ -221,6 +225,7 @@ public class ThirdFourthController {
 
     private void toggleDisable(boolean enable) {
         smartSwitch.setVisible(enable);
+        smartDetectRoundNumber.setVisible(enable);
         ex1.setDisable(enable);
         ex2.setDisable(enable);
         ex3.setDisable(enable);
@@ -237,5 +242,13 @@ public class ThirdFourthController {
         String value = String.valueOf(smartSwitch.getValue());
         String[] steps = value.split("\\s+")[0].split("-");
         HttpUtil.doPost(BASE_URL + "/smart_switch", String.format("step1=%s&step2=%s", steps[0], steps[1]));
+    }
+
+    public void handleSmartDetectRoundNumberChange(ActionEvent actionEvent) {
+        Pattern pattern = Pattern.compile("(\\d)");
+        Matcher matcher = pattern.matcher(String.valueOf(smartDetectRoundNumber.getValue()));
+        if (matcher.find()) {
+            HttpUtil.doPost(BASE_URL + "/smart_mode_detect_round", "round=" + matcher.group(1));
+        }
     }
 }
