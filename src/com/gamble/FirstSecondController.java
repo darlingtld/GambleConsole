@@ -92,6 +92,8 @@ public class FirstSecondController {
             enableStatusText.setText("正在下注");
         }
         HttpUtil.doPost(BASE_URL + "/enable", "");
+        HttpUtil.doPost(BASE_URL + "/enable/smart_mode", "");
+        this.handleSmartSwitchChange(null);
     }
 
     public void handleDisable(ActionEvent actionEvent) {
