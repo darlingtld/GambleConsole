@@ -54,11 +54,11 @@
         <ComboBox fx:id="smartSwitch" onAction="#handleSmartSwitchChange" visible="true" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="2">
             <items>
                 <FXCollections fx:factory="observableArrayList">
-                    <String fx:value="2,4,6-5,7,9 对跳" />
+                    <String fx:value="2,5,8-3,6,9 对跳" />
                 </FXCollections>
             </items>
             <value>
-                <String fx:value="2,4,6-5,7,9 对跳" />
+                <String fx:value="2,5,8-3,6,9 对跳" />
             </value>
         </ComboBox>
         <ComboBox fx:id="smartDetectRoundNumber" onAction="#handleSmartDetectRoundNumberChange" visible="true" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="3">
