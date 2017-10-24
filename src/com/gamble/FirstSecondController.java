@@ -34,6 +34,8 @@ public class FirstSecondController {
     @FXML
     public Label maxBetCountLabel;
     @FXML
+    public CheckBox reverseMode;
+    @FXML
     private CheckBox ex1;
     @FXML
     private CheckBox ex2;
@@ -83,7 +85,8 @@ public class FirstSecondController {
     @FXML
     public Text message;
 
-    private List<Integer> smpNumbersToExclude = new ArrayList<Integer>();
+    private List<Integer> smpNumbersToExclude = new ArrayList<>();
+    private Pattern pattern = Pattern.compile("(\\d)");
 
     public void handleEnable(ActionEvent actionEvent) {
         if (enable.isSelected()) {
@@ -234,6 +237,7 @@ public class FirstSecondController {
     private void toggleDisable(boolean enable) {
         smartSwitch.setVisible(enable);
         smartDetectRoundNumber.setVisible(enable);
+        reverseMode.setVisible(!enable);
         maxBetCount.setVisible(!enable);
         maxBetCountLabel.setVisible(!enable);
         ex1.setDisable(enable);
@@ -255,7 +259,6 @@ public class FirstSecondController {
     }
 
     public void handleSmartDetectRoundNumberChange(ActionEvent actionEvent) {
-        Pattern pattern = Pattern.compile("(\\d)");
         Matcher matcher = pattern.matcher(String.valueOf(smartDetectRoundNumber.getValue()));
         if (matcher.find()) {
             HttpUtil.doPost(BASE_URL + "/smart_mode_detect_round", "round=" + matcher.group(1));
@@ -264,5 +267,13 @@ public class FirstSecondController {
 
     public void handleMaxBetCountChange(ActionEvent actionEvent) {
         HttpUtil.doPost(BASE_URL + "/max_bet_count", "count=" + maxBetCount.getValue());
+    }
+
+    public void handleReverseModeChange(ActionEvent actionEvent) {
+        if (reverseMode.isSelected()) {
+            HttpUtil.doPost(BASE_URL + "/enable/reverse_mode", "");
+        } else {
+            HttpUtil.doPost(BASE_URL + "/disable/reverse_mode", "");
+        }
     }
 }

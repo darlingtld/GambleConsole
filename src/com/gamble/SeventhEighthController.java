@@ -33,6 +33,8 @@ public class SeventhEighthController {
     @FXML
     public Label maxBetCountLabel;
     @FXML
+    public CheckBox reverseMode;
+    @FXML
     private TextField chip;
     @FXML
     private CheckBox ex1;
@@ -84,6 +86,8 @@ public class SeventhEighthController {
     public Text message;
 
     private List<Integer> numbersToExclude = new ArrayList<Integer>();
+
+    private Pattern pattern = Pattern.compile("(\\d)");
 
     public void handleEnable(ActionEvent actionEvent) {
         if (enable.isSelected()) {
@@ -260,7 +264,6 @@ public class SeventhEighthController {
     }
 
     public void handleSmartDetectRoundNumberChange(ActionEvent actionEvent) {
-        Pattern pattern = Pattern.compile("(\\d)");
         Matcher matcher = pattern.matcher(String.valueOf(smartDetectRoundNumber.getValue()));
         if (matcher.find()) {
             HttpUtil.doPost(BASE_URL + "/smart_mode_detect_round", "round=" + matcher.group(1));
@@ -269,5 +272,13 @@ public class SeventhEighthController {
 
     public void handleMaxBetCountChange(ActionEvent actionEvent) {
         HttpUtil.doPost(BASE_URL + "/max_bet_count", "count=" + maxBetCount.getValue());
+    }
+
+    public void handleReverseModeChange(ActionEvent actionEvent) {
+        if (reverseMode.isSelected()) {
+            HttpUtil.doPost(BASE_URL + "/enable/reverse_mode", "");
+        } else {
+            HttpUtil.doPost(BASE_URL + "/disable/reverse_mode", "");
+        }
     }
 }
