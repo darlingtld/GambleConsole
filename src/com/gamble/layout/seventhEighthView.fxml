@@ -98,7 +98,6 @@
                     <String fx:value="7" />
                     <String fx:value="8" />
                     <String fx:value="9" />
-                    <String fx:value="10" />
                 </FXCollections>
             </items>
             <value>
