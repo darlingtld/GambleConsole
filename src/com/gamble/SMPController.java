@@ -8,6 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.text.Text;
 
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -15,6 +16,8 @@ import java.util.List;
 
 public class SMPController {
     public static final String BASE_URL = "smp";
+
+    List<Integer> chipLevel = Arrays.asList(2, 4, 9, 20, 42, 90);
 
     @FXML
     public ComboBox smpLevel;
@@ -130,17 +133,34 @@ public class SMPController {
     public void handleSMPModeChange(ActionEvent actionEvent) {
         if ("傻瓜模式".equals(smpMode.getValue())) {
             HttpUtil.doPost(BASE_URL + "/enable/dumb_mode", "");
-            int baseChip = 2;
-            smpChip1.setText(String.valueOf(baseChip));
-            smpChip2.setText(String.valueOf(baseChip << 1));
-            smpChip3.setText(String.valueOf(baseChip << 2));
-            smpChip4.setText(String.valueOf(baseChip << 3));
-            smpChip5.setText(String.valueOf(baseChip << 4));
-            smpChip6.setText(String.valueOf(baseChip << 5));
-            this.handleChipChange(null);
+            toggleChipDisable(true);
         } else {
             HttpUtil.doPost(BASE_URL + "/disable/dumb_mode", "");
+            toggleChipDisable(false);
         }
-        modeStatus.setText("当前为" + smpMode.getValue());
+        modeStatus.setText(String.valueOf(smpMode.getValue()));
+    }
+
+    private void toggleChipDisable(boolean enable) {
+        smpChip2.setDisable(enable);
+        smpChip3.setDisable(enable);
+        smpChip4.setDisable(enable);
+        smpChip5.setDisable(enable);
+        smpChip6.setDisable(enable);
+        smpChip7.setDisable(enable);
+        smpChip8.setDisable(enable);
+        smpChip9.setDisable(enable);
+        smpChip10.setDisable(enable);
+    }
+
+    public void handleDumbChipChange(javafx.scene.input.KeyEvent keyEvent) {
+        if ("傻瓜模式".equals(smpMode.getValue()) && smpChip1.getText().matches("\\d+")) {
+            double chip = Double.parseDouble(smpChip1.getText());
+            smpChip2.setText(String.valueOf(Double.valueOf(chip / 2.0 * chipLevel.get(1)).intValue()));
+            smpChip3.setText(String.valueOf(Double.valueOf(chip / 2.0 * chipLevel.get(2)).intValue()));
+            smpChip4.setText(String.valueOf(Double.valueOf(chip / 2.0 * chipLevel.get(3)).intValue()));
+            smpChip5.setText(String.valueOf(Double.valueOf(chip / 2.0 * chipLevel.get(4)).intValue()));
+            smpChip6.setText(String.valueOf(Double.valueOf(chip / 2.0 * chipLevel.get(5)).intValue()));
+        }
     }
 }

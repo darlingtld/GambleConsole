@@ -38,16 +38,16 @@
         <CheckBox fx:id="ex8" mnemonicParsing="false" onAction="#handleNumExEvent" text="8" GridPane.columnIndex="2" GridPane.rowIndex="7" disable="true"/>
         <CheckBox fx:id="ex9" mnemonicParsing="false" onAction="#handleNumExEvent" text="9" GridPane.columnIndex="3" GridPane.rowIndex="7" disable="true"/>
         <CheckBox fx:id="ex10" mnemonicParsing="false" onAction="#handleNumExEvent" text="10" GridPane.columnIndex="4" GridPane.rowIndex="7" disable="true"/>
-        <TextField fx:id="smpChip1" text="2" GridPane.rowIndex="9" />
-        <TextField fx:id="smpChip2" text="4" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-        <TextField fx:id="smpChip3" text="9" GridPane.columnIndex="2" GridPane.rowIndex="9" />
-        <TextField fx:id="smpChip4" text="20" GridPane.columnIndex="3" GridPane.rowIndex="9" />
-        <TextField fx:id="smpChip5" text="42" GridPane.columnIndex="4" GridPane.rowIndex="9" />
-        <TextField fx:id="smpChip6" text="90" GridPane.rowIndex="11" />
-        <TextField fx:id="smpChip7" text="0" GridPane.columnIndex="1" GridPane.rowIndex="11" />
-        <TextField fx:id="smpChip8" text="0" GridPane.columnIndex="2" GridPane.rowIndex="11" />
-        <TextField fx:id="smpChip9" text="0" GridPane.columnIndex="3" GridPane.rowIndex="11" />
-        <TextField fx:id="smpChip10" text="0" GridPane.columnIndex="4" GridPane.rowIndex="11" />
+        <TextField fx:id="smpChip1" text="2" GridPane.rowIndex="9" onKeyReleased="#handleDumbChipChange"/>
+        <TextField fx:id="smpChip2" text="4" GridPane.columnIndex="1" GridPane.rowIndex="9" disable="true"/>
+        <TextField fx:id="smpChip3" text="9" GridPane.columnIndex="2" GridPane.rowIndex="9" disable="true"/>
+        <TextField fx:id="smpChip4" text="20" GridPane.columnIndex="3" GridPane.rowIndex="9" disable="true"/>
+        <TextField fx:id="smpChip5" text="42" GridPane.columnIndex="4" GridPane.rowIndex="9" disable="true"/>
+        <TextField fx:id="smpChip6" text="90" GridPane.rowIndex="11" disable="true"/>
+        <TextField fx:id="smpChip7" text="0" GridPane.columnIndex="1" GridPane.rowIndex="11" disable="true"/>
+        <TextField fx:id="smpChip8" text="0" GridPane.columnIndex="2" GridPane.rowIndex="11" disable="true"/>
+        <TextField fx:id="smpChip9" text="0" GridPane.columnIndex="3" GridPane.rowIndex="11" disable="true"/>
+        <TextField fx:id="smpChip10" text="0" GridPane.columnIndex="4" GridPane.rowIndex="11" disable="true" />
         <Label text="第一关" GridPane.rowIndex="8" />
         <Label text="第二关" GridPane.columnIndex="1" GridPane.rowIndex="8" />
         <Label text="第三关" GridPane.columnIndex="2" GridPane.rowIndex="8" />

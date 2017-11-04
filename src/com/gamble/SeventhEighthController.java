@@ -20,6 +20,8 @@ import java.util.stream.Collectors;
 
 public class SeventhEighthController {
     private static final String BASE_URL = "seventh_eighth";
+
+    private List<Integer> chipLevel = Arrays.asList(2, 4, 9, 20, 42, 90);
     @FXML
     public ComboBox gambleMode;
     @FXML
@@ -220,32 +222,59 @@ public class SeventhEighthController {
 
     public void handleModeChange(ActionEvent actionEvent) {
         if ("傻瓜模式".equals(gambleMode.getValue())) {
-            smartModeStatus.setText("自动探测");
+            smartModeStatus.setText("傻瓜模式");
             HttpUtil.doPost(BASE_URL + "/enable/dumb_mode", "");
             toggleDisable(true, true);
+            toggleChipDisable(true);
         } else if ("普通模式".equals(gambleMode.getValue())) {
             smartModeStatus.setText("普通模式");
             HttpUtil.doPost(BASE_URL + "/disable/dumb_mode", "");
             HttpUtil.doPost(BASE_URL + "/disable/smart_mode", "");
             HttpUtil.doPost(BASE_URL + "/disable/reverse_mode", "");
-            toggleDisable(false, false);
+            toggleDisable(false, true);
+            toggleChipDisable(false);
         } else if ("普通模式(反)".equals(gambleMode.getValue())) {
             smartModeStatus.setText("普通模式(反)");
             HttpUtil.doPost(BASE_URL + "/disable/dumb_mode", "");
             HttpUtil.doPost(BASE_URL + "/disable/smart_mode", "");
             HttpUtil.doPost(BASE_URL + "/enable/reverse_mode", "");
-            toggleDisable(false, false);
+            toggleDisable(false, true);
+            toggleChipDisable(false);
         } else if ("探测模式".equals(gambleMode.getValue())) {
             smartModeStatus.setText("探测模式");
             HttpUtil.doPost(BASE_URL + "/disable/dumb_mode", "");
             HttpUtil.doPost(BASE_URL + "/enable/smart_mode", "");
             toggleDisable(true, false);
+            toggleChipDisable(false);
+        }
+    }
+
+    private void toggleChipDisable(boolean enable){
+        smpChip2.setDisable(enable);
+        smpChip3.setDisable(enable);
+        smpChip4.setDisable(enable);
+        smpChip5.setDisable(enable);
+        smpChip6.setDisable(enable);
+        smpChip7.setDisable(enable);
+        smpChip8.setDisable(enable);
+        smpChip9.setDisable(enable);
+        smpChip10.setDisable(enable);
+    }
+
+    public void handleDumbChipChange(javafx.scene.input.KeyEvent keyEvent) {
+        if ("傻瓜模式".equals(gambleMode.getValue()) && smpChip1.getText().matches("\\d+")) {
+            double chip = Double.parseDouble(smpChip1.getText());
+            smpChip2.setText(String.valueOf(Double.valueOf(chip / 2.0 * chipLevel.get(1)).intValue()));
+            smpChip3.setText(String.valueOf(Double.valueOf(chip / 2.0 * chipLevel.get(2)).intValue()));
+            smpChip4.setText(String.valueOf(Double.valueOf(chip / 2.0 * chipLevel.get(3)).intValue()));
+            smpChip5.setText(String.valueOf(Double.valueOf(chip / 2.0 * chipLevel.get(4)).intValue()));
+            smpChip6.setText(String.valueOf(Double.valueOf(chip / 2.0 * chipLevel.get(5)).intValue()));
         }
     }
 
     private void toggleDisable(boolean enable, boolean isDumbMode) {
-        smartSwitch.setVisible(enable || isDumbMode);
-        smartDetectRoundNumber.setVisible(enable || isDumbMode);
+        smartSwitch.setVisible(enable && !isDumbMode);
+        smartDetectRoundNumber.setVisible(enable && !isDumbMode);
         maxBetCount.setVisible(!enable);
         maxBetCountLabel.setVisible(!enable);
         ex1.setDisable(enable);
