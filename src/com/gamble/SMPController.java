@@ -52,6 +52,10 @@ public class SMPController {
     public CheckBox smpDaXiao;
     @FXML
     public CheckBox smpDanShuang;
+    @FXML
+    public Text modeStatus;
+    @FXML
+    public ComboBox smpMode;
 
     public void handleSMPEnable(ActionEvent actionEvent) {
         if (smpEnable.isSelected()) {
@@ -121,5 +125,22 @@ public class SMPController {
         } else {
             HttpUtil.doPost(BASE_URL + "/disable/category/danshuang", "");
         }
+    }
+
+    public void handleSMPModeChange(ActionEvent actionEvent) {
+        if ("傻瓜模式".equals(smpMode.getValue())) {
+            HttpUtil.doPost(BASE_URL + "/enable/dumb_mode", "");
+            int baseChip = 2;
+            smpChip1.setText(String.valueOf(baseChip));
+            smpChip2.setText(String.valueOf(baseChip << 1));
+            smpChip3.setText(String.valueOf(baseChip << 2));
+            smpChip4.setText(String.valueOf(baseChip << 3));
+            smpChip5.setText(String.valueOf(baseChip << 4));
+            smpChip6.setText(String.valueOf(baseChip << 5));
+            this.handleChipChange(null);
+        } else {
+            HttpUtil.doPost(BASE_URL + "/disable/dumb_mode", "");
+        }
+        modeStatus.setText("当前为" + smpMode.getValue());
     }
 }

@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 public class FirstSecondController {
     private static final String BASE_URL = "first_second";
     @FXML
-    public ToggleButton smartMode;
+    public ComboBox gambleMode;
     @FXML
     public Text smartModeStatus;
     @FXML
@@ -33,8 +33,6 @@ public class FirstSecondController {
     public ComboBox maxBetCount;
     @FXML
     public Label maxBetCountLabel;
-    @FXML
-    public CheckBox reverseMode;
     @FXML
     private CheckBox ex1;
     @FXML
@@ -61,7 +59,6 @@ public class FirstSecondController {
     private ToggleButton disable;
     @FXML
     private ToggleButton enable;
-
     @FXML
     public TextField smpChip1;
     @FXML
@@ -220,24 +217,34 @@ public class FirstSecondController {
 
     }
 
-    public void handleSmartModeChange(ActionEvent actionEvent) {
-        if (smartMode.isSelected()) {
-            smartMode.setSelected(true);
-            toggleDisable(true);
-            smartModeStatus.setText("当前为自动探测");
-            HttpUtil.doPost(BASE_URL + "/enable/smart_mode", "");
-        } else {
-            smartModeStatus.setText("当前为普通模式");
-            smartMode.setSelected(false);
-            toggleDisable(false);
+    public void handleModeChange(ActionEvent actionEvent) {
+        if ("傻瓜模式".equals(gambleMode.getValue())) {
+            smartModeStatus.setText("自动探测");
+            HttpUtil.doPost(BASE_URL + "/enable/dumb_mode", "");
+            toggleDisable(true, true);
+        } else if ("普通模式".equals(gambleMode.getValue())) {
+            smartModeStatus.setText("普通模式");
+            HttpUtil.doPost(BASE_URL + "/disable/dumb_mode", "");
             HttpUtil.doPost(BASE_URL + "/disable/smart_mode", "");
+            HttpUtil.doPost(BASE_URL + "/disable/reverse_mode", "");
+            toggleDisable(false, false);
+        } else if ("普通模式(反)".equals(gambleMode.getValue())) {
+            smartModeStatus.setText("普通模式(反)");
+            HttpUtil.doPost(BASE_URL + "/disable/dumb_mode", "");
+            HttpUtil.doPost(BASE_URL + "/disable/smart_mode", "");
+            HttpUtil.doPost(BASE_URL + "/enable/reverse_mode", "");
+            toggleDisable(false, false);
+        } else if ("探测模式".equals(gambleMode.getValue())) {
+            smartModeStatus.setText("探测模式");
+            HttpUtil.doPost(BASE_URL + "/disable/dumb_mode", "");
+            HttpUtil.doPost(BASE_URL + "/enable/smart_mode", "");
+            toggleDisable(true, false);
         }
     }
 
-    private void toggleDisable(boolean enable) {
-        smartSwitch.setVisible(enable);
-        smartDetectRoundNumber.setVisible(enable);
-        reverseMode.setVisible(!enable);
+    private void toggleDisable(boolean enable, boolean isDumbMode) {
+        smartSwitch.setVisible(enable || isDumbMode);
+        smartDetectRoundNumber.setVisible(enable || isDumbMode);
         maxBetCount.setVisible(!enable);
         maxBetCountLabel.setVisible(!enable);
         ex1.setDisable(enable);
@@ -267,13 +274,5 @@ public class FirstSecondController {
 
     public void handleMaxBetCountChange(ActionEvent actionEvent) {
         HttpUtil.doPost(BASE_URL + "/max_bet_count", "count=" + maxBetCount.getValue());
-    }
-
-    public void handleReverseModeChange(ActionEvent actionEvent) {
-        if (reverseMode.isSelected()) {
-            HttpUtil.doPost(BASE_URL + "/enable/reverse_mode", "");
-        } else {
-            HttpUtil.doPost(BASE_URL + "/disable/reverse_mode", "");
-        }
     }
 }

@@ -25,12 +25,12 @@
         <ToggleButton fx:id="smpEnable" mnemonicParsing="false" onAction="#handleSMPEnable" text="开启下注" GridPane.columnIndex="1" GridPane.rowIndex="1" />
         <ToggleButton fx:id="smpDisable" mnemonicParsing="false" onAction="#handleSMPDisable" text="关闭下注" GridPane.columnIndex="2" GridPane.rowIndex="1" />
         <Text fx:id="enableStatusText" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-        <TextField fx:id="smpChip1" text="5" GridPane.rowIndex="6" />
-        <TextField fx:id="smpChip2" text="0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-        <TextField fx:id="smpChip3" text="0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-        <TextField fx:id="smpChip4" text="0" GridPane.columnIndex="3" GridPane.rowIndex="6" />
-        <TextField fx:id="smpChip5" text="0" GridPane.columnIndex="4" GridPane.rowIndex="6" />
-        <TextField fx:id="smpChip6" text="0" GridPane.rowIndex="9" />
+        <TextField fx:id="smpChip1" text="2" GridPane.rowIndex="6" />
+        <TextField fx:id="smpChip2" text="4" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+        <TextField fx:id="smpChip3" text="8" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+        <TextField fx:id="smpChip4" text="16" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+        <TextField fx:id="smpChip5" text="32" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+        <TextField fx:id="smpChip6" text="64" GridPane.rowIndex="9" />
         <TextField fx:id="smpChip7" text="0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
         <TextField fx:id="smpChip8" text="0" GridPane.columnIndex="2" GridPane.rowIndex="9" />
         <TextField fx:id="smpChip9" text="0" GridPane.columnIndex="3" GridPane.rowIndex="9" />
@@ -46,10 +46,21 @@
         <Label text="第九关" GridPane.columnIndex="3" GridPane.rowIndex="8" />
         <Label text="第十关" GridPane.columnIndex="4" GridPane.rowIndex="8" />
         <Button mnemonicParsing="false" onAction="#submitLevelChips" text="确认设置每关金额" GridPane.columnSpan="2" GridPane.rowIndex="11" />
-        <Text fx:id="message" strokeType="OUTSIDE" strokeWidth="0.0" text="当前：5-0-0-0-0-0-0-0-0-0" GridPane.columnIndex="2"
-              GridPane.rowIndex="11"/>
+        <Text fx:id="message" strokeType="OUTSIDE" strokeWidth="0.0" text="当前：2-4-8-16-32-64-0-0-0-0" GridPane.columnIndex="2" GridPane.rowIndex="11" />
         <CheckBox fx:id="smpDaXiao" mnemonicParsing="false" onAction="#handleSMPCategoryChange" selected="true" text="大小" GridPane.rowIndex="3" />
         <CheckBox fx:id="smpDanShuang" mnemonicParsing="false" onAction="#handleSMPCategoryChange" text="单双" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+        <ComboBox fx:id="smpMode" onAction="#handleSMPModeChange" GridPane.columnSpan="2" GridPane.rowIndex="4">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="傻瓜模式" />
+                    <String fx:value="连凹模式" />
+                </FXCollections>
+            </items>
+            <value>
+                <String fx:value="傻瓜模式" />
+            </value>
+        </ComboBox>
+        <Text fx:id="modeStatus" strokeType="OUTSIDE" strokeWidth="0.0" text="当前为傻瓜模式" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="4" />
 
     </children>
     <columnConstraints>
@@ -60,6 +71,7 @@
         <ColumnConstraints maxWidth="100.0" minWidth="50.0" prefWidth="75.0" />
     </columnConstraints>
     <rowConstraints>
+        <RowConstraints />
         <RowConstraints />
         <RowConstraints />
         <RowConstraints />

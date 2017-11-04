@@ -21,9 +21,11 @@ import java.util.stream.Collectors;
 public class SeventhEighthController {
     private static final String BASE_URL = "seventh_eighth";
     @FXML
-    public ToggleButton smartMode;
+    public ComboBox gambleMode;
     @FXML
     public Text smartModeStatus;
+    @FXML
+    public Text exText;
     @FXML
     public ComboBox smartSwitch;
     @FXML
@@ -32,10 +34,6 @@ public class SeventhEighthController {
     public ComboBox maxBetCount;
     @FXML
     public Label maxBetCountLabel;
-    @FXML
-    public CheckBox reverseMode;
-    @FXML
-    private TextField chip;
     @FXML
     private CheckBox ex1;
     @FXML
@@ -85,8 +83,7 @@ public class SeventhEighthController {
     @FXML
     public Text message;
 
-    private List<Integer> numbersToExclude = new ArrayList<Integer>();
-
+    private List<Integer> smpNumbersToExclude = new ArrayList<>();
     private Pattern pattern = Pattern.compile("(\\d)");
 
     public void handleEnable(ActionEvent actionEvent) {
@@ -107,93 +104,88 @@ public class SeventhEighthController {
         HttpUtil.doPost(BASE_URL + "/disable", "");
     }
 
-    public void handleChipChange(ActionEvent actionEvent) {
-        System.out.println(chip.getText());
-        HttpUtil.doPost(BASE_URL + "/chip", "chip=" + chip.getText());
-    }
-
     public void handleNumExEvent(ActionEvent actionEvent) {
         if (ex1.isSelected()) {
-            if (!numbersToExclude.contains(Integer.parseInt(ex1.getText()))) {
-                numbersToExclude.add(Integer.parseInt(ex1.getText()));
+            if (!smpNumbersToExclude.contains(Integer.parseInt(ex1.getText()))) {
+                smpNumbersToExclude.add(Integer.parseInt(ex1.getText()));
             }
         } else {
-            numbersToExclude.removeIf(num -> Integer.parseInt(ex1.getText()) == num);
+            smpNumbersToExclude.removeIf(num -> Integer.parseInt(ex1.getText()) == num);
         }
 
         if (ex2.isSelected()) {
-            if (!numbersToExclude.contains(Integer.parseInt(ex2.getText()))) {
-                numbersToExclude.add(Integer.parseInt(ex2.getText()));
+            if (!smpNumbersToExclude.contains(Integer.parseInt(ex2.getText()))) {
+                smpNumbersToExclude.add(Integer.parseInt(ex2.getText()));
             }
         } else {
-            numbersToExclude.removeIf(num -> Integer.parseInt(ex2.getText()) == num);
+            smpNumbersToExclude.removeIf(num -> Integer.parseInt(ex2.getText()) == num);
         }
 
         if (ex3.isSelected()) {
-            if (!numbersToExclude.contains(Integer.parseInt(ex3.getText()))) {
-                numbersToExclude.add(Integer.parseInt(ex3.getText()));
+            if (!smpNumbersToExclude.contains(Integer.parseInt(ex3.getText()))) {
+                smpNumbersToExclude.add(Integer.parseInt(ex3.getText()));
             }
         } else {
-            numbersToExclude.removeIf(num -> Integer.parseInt(ex3.getText()) == num);
+            smpNumbersToExclude.removeIf(num -> Integer.parseInt(ex3.getText()) == num);
         }
 
         if (ex4.isSelected()) {
-            if (!numbersToExclude.contains(Integer.parseInt(ex4.getText()))) {
-                numbersToExclude.add(Integer.parseInt(ex4.getText()));
+            if (!smpNumbersToExclude.contains(Integer.parseInt(ex4.getText()))) {
+                smpNumbersToExclude.add(Integer.parseInt(ex4.getText()));
             }
         } else {
-            numbersToExclude.removeIf(num -> Integer.parseInt(ex4.getText()) == num);
+            smpNumbersToExclude.removeIf(num -> Integer.parseInt(ex4.getText()) == num);
         }
 
         if (ex5.isSelected()) {
-            if (!numbersToExclude.contains(Integer.parseInt(ex5.getText()))) {
-                numbersToExclude.add(Integer.parseInt(ex5.getText()));
+            if (!smpNumbersToExclude.contains(Integer.parseInt(ex5.getText()))) {
+                smpNumbersToExclude.add(Integer.parseInt(ex5.getText()));
             }
         } else {
-            numbersToExclude.removeIf(num -> Integer.parseInt(ex5.getText()) == num);
+            smpNumbersToExclude.removeIf(num -> Integer.parseInt(ex5.getText()) == num);
         }
 
         if (ex6.isSelected()) {
-            if (!numbersToExclude.contains(Integer.parseInt(ex6.getText()))) {
-                numbersToExclude.add(Integer.parseInt(ex6.getText()));
+            if (!smpNumbersToExclude.contains(Integer.parseInt(ex6.getText()))) {
+                smpNumbersToExclude.add(Integer.parseInt(ex6.getText()));
             }
         } else {
-            numbersToExclude.removeIf(num -> Integer.parseInt(ex6.getText()) == num);
+            smpNumbersToExclude.removeIf(num -> Integer.parseInt(ex6.getText()) == num);
         }
 
         if (ex7.isSelected()) {
-            if (!numbersToExclude.contains(Integer.parseInt(ex7.getText()))) {
-                numbersToExclude.add(Integer.parseInt(ex7.getText()));
+            if (!smpNumbersToExclude.contains(Integer.parseInt(ex7.getText()))) {
+                smpNumbersToExclude.add(Integer.parseInt(ex7.getText()));
             }
         } else {
-            numbersToExclude.removeIf(num -> Integer.parseInt(ex7.getText()) == num);
+            smpNumbersToExclude.removeIf(num -> Integer.parseInt(ex7.getText()) == num);
         }
 
         if (ex8.isSelected()) {
-            if (!numbersToExclude.contains(Integer.parseInt(ex8.getText()))) {
-                numbersToExclude.add(Integer.parseInt(ex8.getText()));
+            if (!smpNumbersToExclude.contains(Integer.parseInt(ex8.getText()))) {
+                smpNumbersToExclude.add(Integer.parseInt(ex8.getText()));
             }
         } else {
-            numbersToExclude.removeIf(num -> Integer.parseInt(ex8.getText()) == num);
+            smpNumbersToExclude.removeIf(num -> Integer.parseInt(ex8.getText()) == num);
         }
 
         if (ex9.isSelected()) {
-            if (!numbersToExclude.contains(Integer.parseInt(ex9.getText()))) {
-                numbersToExclude.add(Integer.parseInt(ex9.getText()));
+            if (!smpNumbersToExclude.contains(Integer.parseInt(ex9.getText()))) {
+                smpNumbersToExclude.add(Integer.parseInt(ex9.getText()));
             }
         } else {
-            numbersToExclude.removeIf(num -> Integer.parseInt(ex9.getText()) == num);
+            smpNumbersToExclude.removeIf(num -> Integer.parseInt(ex9.getText()) == num);
         }
 
         if (ex10.isSelected()) {
-            if (!numbersToExclude.contains(Integer.parseInt(ex10.getText()))) {
-                numbersToExclude.add(Integer.parseInt(ex10.getText()));
+            if (!smpNumbersToExclude.contains(Integer.parseInt(ex10.getText()))) {
+                smpNumbersToExclude.add(Integer.parseInt(ex10.getText()));
             }
         } else {
-            numbersToExclude.removeIf(num -> Integer.parseInt(ex10.getText()) == num);
+            smpNumbersToExclude.removeIf(num -> Integer.parseInt(ex10.getText()) == num);
         }
 
-        HttpUtil.doPost(BASE_URL + "/exclude", "nums=" + numbersToExclude.stream().map(Object::toString).collect(Collectors.joining(",")));
+        HttpUtil.doPost(BASE_URL + "/exclude", "nums=" + smpNumbersToExclude.stream().map(Object::toString).collect(Collectors.joining(",")));
     }
 
     public void submitLevelChips(ActionEvent actionEvent) {
@@ -226,23 +218,34 @@ public class SeventhEighthController {
 
     }
 
-    public void handleSmartModeChange(ActionEvent actionEvent) {
-        if (smartMode.isSelected()) {
-            smartMode.setSelected(true);
-            toggleDisable(true);
-            smartModeStatus.setText("当前为自动探测");
-            HttpUtil.doPost(BASE_URL + "/enable/smart_mode", "");
-        } else {
-            smartModeStatus.setText("当前为普通模式");
-            smartMode.setSelected(false);
-            toggleDisable(false);
+    public void handleModeChange(ActionEvent actionEvent) {
+        if ("傻瓜模式".equals(gambleMode.getValue())) {
+            smartModeStatus.setText("自动探测");
+            HttpUtil.doPost(BASE_URL + "/enable/dumb_mode", "");
+            toggleDisable(true, true);
+        } else if ("普通模式".equals(gambleMode.getValue())) {
+            smartModeStatus.setText("普通模式");
+            HttpUtil.doPost(BASE_URL + "/disable/dumb_mode", "");
             HttpUtil.doPost(BASE_URL + "/disable/smart_mode", "");
+            HttpUtil.doPost(BASE_URL + "/disable/reverse_mode", "");
+            toggleDisable(false, false);
+        } else if ("普通模式(反)".equals(gambleMode.getValue())) {
+            smartModeStatus.setText("普通模式(反)");
+            HttpUtil.doPost(BASE_URL + "/disable/dumb_mode", "");
+            HttpUtil.doPost(BASE_URL + "/disable/smart_mode", "");
+            HttpUtil.doPost(BASE_URL + "/enable/reverse_mode", "");
+            toggleDisable(false, false);
+        } else if ("探测模式".equals(gambleMode.getValue())) {
+            smartModeStatus.setText("探测模式");
+            HttpUtil.doPost(BASE_URL + "/disable/dumb_mode", "");
+            HttpUtil.doPost(BASE_URL + "/enable/smart_mode", "");
+            toggleDisable(true, false);
         }
     }
 
-    private void toggleDisable(boolean enable){
-        smartSwitch.setVisible(enable);
-        smartDetectRoundNumber.setVisible(enable);
+    private void toggleDisable(boolean enable, boolean isDumbMode) {
+        smartSwitch.setVisible(enable || isDumbMode);
+        smartDetectRoundNumber.setVisible(enable || isDumbMode);
         maxBetCount.setVisible(!enable);
         maxBetCountLabel.setVisible(!enable);
         ex1.setDisable(enable);
@@ -272,13 +275,5 @@ public class SeventhEighthController {
 
     public void handleMaxBetCountChange(ActionEvent actionEvent) {
         HttpUtil.doPost(BASE_URL + "/max_bet_count", "count=" + maxBetCount.getValue());
-    }
-
-    public void handleReverseModeChange(ActionEvent actionEvent) {
-        if (reverseMode.isSelected()) {
-            HttpUtil.doPost(BASE_URL + "/enable/reverse_mode", "");
-        } else {
-            HttpUtil.doPost(BASE_URL + "/disable/reverse_mode", "");
-        }
     }
 }

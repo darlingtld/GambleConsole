@@ -18,138 +18,129 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.collections.FXCollections?>
 
-<GridPane alignment="center" hgap="10" prefHeight="102.0" prefWidth="650.0" vgap="10" xmlns="http://javafx.com/javafx/8"
-          xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gamble.NinethTenthController">
+<GridPane alignment="center" hgap="10" prefHeight="102.0" prefWidth="650.0" vgap="10" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gamble.NinethTenthController">
     <padding>
-        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
     </padding>
     <children>
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="开启下注" GridPane.rowIndex="1"/>
-        <ToggleButton fx:id="enable" mnemonicParsing="false" onAction="#handleEnable" text="开启下注"
-                      GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-        <ToggleButton fx:id="disable" mnemonicParsing="false" onAction="#handleDisable" text="关闭下注"
-                      GridPane.columnIndex="2" GridPane.rowIndex="1"/>
-        <Text fx:id="enableStatusText" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="3"
-              GridPane.rowIndex="1"/>
-        <Text fx:id="exText" strokeType="OUTSIDE" strokeWidth="0.0" text="请选择不投注的数字" GridPane.rowIndex="4"/>
-        <CheckBox fx:id="ex1" mnemonicParsing="false" onAction="#handleNumExEvent" text="1" GridPane.rowIndex="5"/>
-        <CheckBox fx:id="ex2" mnemonicParsing="false" onAction="#handleNumExEvent" text="2" GridPane.columnIndex="1"
-                  GridPane.rowIndex="5"/>
-        <CheckBox fx:id="ex3" mnemonicParsing="false" onAction="#handleNumExEvent" text="3" GridPane.columnIndex="2"
-                  GridPane.rowIndex="5"/>
-        <CheckBox fx:id="ex4" mnemonicParsing="false" onAction="#handleNumExEvent" text="4" GridPane.columnIndex="3"
-                  GridPane.rowIndex="5"/>
-        <CheckBox fx:id="ex5" mnemonicParsing="false" onAction="#handleNumExEvent" text="5" GridPane.columnIndex="4"
-                  GridPane.rowIndex="5"/>
-        <CheckBox fx:id="ex6" mnemonicParsing="false" onAction="#handleNumExEvent" text="6" GridPane.rowIndex="7"/>
-        <CheckBox fx:id="ex7" mnemonicParsing="false" onAction="#handleNumExEvent" text="7" GridPane.columnIndex="1"
-                  GridPane.rowIndex="7"/>
-        <CheckBox fx:id="ex8" mnemonicParsing="false" onAction="#handleNumExEvent" text="8" GridPane.columnIndex="2"
-                  GridPane.rowIndex="7"/>
-        <CheckBox fx:id="ex9" mnemonicParsing="false" onAction="#handleNumExEvent" text="9" GridPane.columnIndex="3"
-                  GridPane.rowIndex="7"/>
-        <CheckBox fx:id="ex10" mnemonicParsing="false" onAction="#handleNumExEvent" text="10" GridPane.columnIndex="4"
-                  GridPane.rowIndex="7"/>
-        <TextField fx:id="smpChip1" text="5" GridPane.rowIndex="9"/>
-        <TextField fx:id="smpChip2" text="0" GridPane.columnIndex="1" GridPane.rowIndex="9"/>
-        <TextField fx:id="smpChip3" text="0" GridPane.columnIndex="2" GridPane.rowIndex="9"/>
-        <TextField fx:id="smpChip4" text="0" GridPane.columnIndex="3" GridPane.rowIndex="9"/>
-        <TextField fx:id="smpChip5" text="0" GridPane.columnIndex="4" GridPane.rowIndex="9"/>
-        <TextField fx:id="smpChip6" text="0" GridPane.rowIndex="11"/>
-        <TextField fx:id="smpChip7" text="0" GridPane.columnIndex="1" GridPane.rowIndex="11"/>
-        <TextField fx:id="smpChip8" text="0" GridPane.columnIndex="2" GridPane.rowIndex="11"/>
-        <TextField fx:id="smpChip9" text="0" GridPane.columnIndex="3" GridPane.rowIndex="11"/>
-        <TextField fx:id="smpChip10" text="0" GridPane.columnIndex="4" GridPane.rowIndex="11"/>
-        <Label text="第一关" GridPane.rowIndex="8"/>
-        <Label text="第二关" GridPane.columnIndex="1" GridPane.rowIndex="8"/>
-        <Label text="第三关" GridPane.columnIndex="2" GridPane.rowIndex="8"/>
-        <Label text="第四关" GridPane.columnIndex="3" GridPane.rowIndex="8"/>
-        <Label text="第五关" GridPane.columnIndex="4" GridPane.rowIndex="8"/>
-        <Label text="第六关" GridPane.rowIndex="10"/>
-        <Label text="第七关" GridPane.columnIndex="1" GridPane.rowIndex="10"/>
-        <Label text="第八关" GridPane.columnIndex="2" GridPane.rowIndex="10"/>
-        <Label text="第九关" GridPane.columnIndex="3" GridPane.rowIndex="10"/>
-        <Label text="第十关" GridPane.columnIndex="4" GridPane.rowIndex="10"/>
-        <Button mnemonicParsing="false" onAction="#submitLevelChips" text="确认设置每关金额" GridPane.columnSpan="2"
-                GridPane.rowIndex="12"/>
-        <Text fx:id="message" strokeType="OUTSIDE" strokeWidth="0.0" text="当前：5-0-0-0-0-0-0-0-0-0"
-              GridPane.columnIndex="2" GridPane.rowIndex="12"/>
-        <ToggleButton fx:id="smartMode" mnemonicParsing="false" onAction="#handleSmartModeChange" text="模式切换"
-                      GridPane.rowIndex="2"/>
-        <Text fx:id="smartModeStatus" strokeType="OUTSIDE" strokeWidth="0.0" text="当前为普通模式" GridPane.columnIndex="1"
-              GridPane.rowIndex="2"/>
-        <ComboBox fx:id="smartSwitch" onAction="#handleSmartSwitchChange" visible="false" GridPane.columnIndex="3"
-                  GridPane.columnSpan="2" GridPane.rowIndex="2">
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="开启下注" GridPane.rowIndex="1" />
+        <ToggleButton fx:id="enable" mnemonicParsing="false" onAction="#handleEnable" text="开启下注" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <ToggleButton fx:id="disable" mnemonicParsing="false" onAction="#handleDisable" text="关闭下注" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+        <Text fx:id="enableStatusText" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+        <Text fx:id="exText" strokeType="OUTSIDE" strokeWidth="0.0" text="请选择不投注的数字" GridPane.rowIndex="4" />
+        <CheckBox fx:id="ex1" mnemonicParsing="false" onAction="#handleNumExEvent" text="1" GridPane.rowIndex="5" disable="true"/>
+        <CheckBox fx:id="ex2" mnemonicParsing="false" onAction="#handleNumExEvent" text="2" GridPane.columnIndex="1" GridPane.rowIndex="5" disable="true"/>
+        <CheckBox fx:id="ex3" mnemonicParsing="false" onAction="#handleNumExEvent" text="3" GridPane.columnIndex="2" GridPane.rowIndex="5" disable="true"/>
+        <CheckBox fx:id="ex4" mnemonicParsing="false" onAction="#handleNumExEvent" text="4" GridPane.columnIndex="3" GridPane.rowIndex="5" disable="true"/>
+        <CheckBox fx:id="ex5" mnemonicParsing="false" onAction="#handleNumExEvent" text="5" GridPane.columnIndex="4" GridPane.rowIndex="5" disable="true"/>
+        <CheckBox fx:id="ex6" mnemonicParsing="false" onAction="#handleNumExEvent" text="6" GridPane.rowIndex="7" disable="true"/>
+        <CheckBox fx:id="ex7" mnemonicParsing="false" onAction="#handleNumExEvent" text="7" GridPane.columnIndex="1" GridPane.rowIndex="7" disable="true"/>
+        <CheckBox fx:id="ex8" mnemonicParsing="false" onAction="#handleNumExEvent" text="8" GridPane.columnIndex="2" GridPane.rowIndex="7" disable="true"/>
+        <CheckBox fx:id="ex9" mnemonicParsing="false" onAction="#handleNumExEvent" text="9" GridPane.columnIndex="3" GridPane.rowIndex="7" disable="true"/>
+        <CheckBox fx:id="ex10" mnemonicParsing="false" onAction="#handleNumExEvent" text="10" GridPane.columnIndex="4" GridPane.rowIndex="7" disable="true"/>
+        <TextField fx:id="smpChip1" text="2" GridPane.rowIndex="9" />
+        <TextField fx:id="smpChip2" text="4" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+        <TextField fx:id="smpChip3" text="8" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+        <TextField fx:id="smpChip4" text="16" GridPane.columnIndex="3" GridPane.rowIndex="9" />
+        <TextField fx:id="smpChip5" text="32" GridPane.columnIndex="4" GridPane.rowIndex="9" />
+        <TextField fx:id="smpChip6" text="64" GridPane.rowIndex="11" />
+        <TextField fx:id="smpChip7" text="0" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+        <TextField fx:id="smpChip8" text="0" GridPane.columnIndex="2" GridPane.rowIndex="11" />
+        <TextField fx:id="smpChip9" text="0" GridPane.columnIndex="3" GridPane.rowIndex="11" />
+        <TextField fx:id="smpChip10" text="0" GridPane.columnIndex="4" GridPane.rowIndex="11" />
+        <Label text="第一关" GridPane.rowIndex="8" />
+        <Label text="第二关" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+        <Label text="第三关" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+        <Label text="第四关" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+        <Label text="第五关" GridPane.columnIndex="4" GridPane.rowIndex="8" />
+        <Label text="第六关" GridPane.rowIndex="10" />
+        <Label text="第七关" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+        <Label text="第八关" GridPane.columnIndex="2" GridPane.rowIndex="10" />
+        <Label text="第九关" GridPane.columnIndex="3" GridPane.rowIndex="10" />
+        <Label text="第十关" GridPane.columnIndex="4" GridPane.rowIndex="10" />
+        <Button mnemonicParsing="false" onAction="#submitLevelChips" text="确认设置每关金额" GridPane.columnSpan="2" GridPane.rowIndex="12" />
+        <Text fx:id="message" strokeType="OUTSIDE" strokeWidth="0.0" text="当前：2-4-8-16-32-64-0-0-0-0" GridPane.columnIndex="2" GridPane.rowIndex="12" />
+        <ComboBox fx:id="gambleMode" onAction="#handleModeChange" GridPane.columnSpan="2" GridPane.rowIndex="2">
             <items>
                 <FXCollections fx:factory="observableArrayList">
-                    <String fx:value="1,3,5-6,8,10 对跳"/>
-                    <String fx:value="2,4,6-5,7,9 对跳"/>
-                    <String fx:value="1,4,7-2,5,8 对跳"/>
-                    <String fx:value="1,4,7-3,6,9 对跳"/>
-                    <String fx:value="2,5,8-3,6,9 对跳"/>
+                    <String fx:value="傻瓜模式" />
+                    <String fx:value="普通模式" />
+                    <String fx:value="普通模式(反)" />
+                    <String fx:value="探测模式" />
                 </FXCollections>
             </items>
             <value>
-                <String fx:value="1,3,5-6,8,10 对跳"/>
+                <String fx:value="傻瓜模式" />
             </value>
         </ComboBox>
-        <ComboBox fx:id="smartDetectRoundNumber" onAction="#handleSmartDetectRoundNumberChange" visible="false"
-                  GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="3">
+        <Text fx:id="smartModeStatus" strokeType="OUTSIDE" strokeWidth="0.0" text="傻瓜模式" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+        <ComboBox fx:id="smartSwitch" onAction="#handleSmartSwitchChange" visible="false" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="2">
             <items>
                 <FXCollections fx:factory="observableArrayList">
-                    <String fx:value="检测前2把"/>
-                    <String fx:value="检测前3把"/>
-                    <String fx:value="检测前4把"/>
+                    <String fx:value="1,3,5-6,8,10 对跳" />
+                    <String fx:value="2,4,6-5,7,9 对跳" />
+                    <String fx:value="1,4,7-2,5,8 对跳" />
+                    <String fx:value="1,4,7-3,6,9 对跳" />
+                    <String fx:value="2,5,8-3,6,9 对跳" />
                 </FXCollections>
             </items>
             <value>
-                <String fx:value="检测前2把"/>
+                <String fx:value="1,3,5-6,8,10 对跳" />
             </value>
         </ComboBox>
-        <ComboBox fx:id="maxBetCount" onAction="#handleMaxBetCountChange" GridPane.columnIndex="1"
-                  GridPane.rowIndex="3">
+        <ComboBox fx:id="smartDetectRoundNumber" onAction="#handleSmartDetectRoundNumberChange" visible="false" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="3">
             <items>
                 <FXCollections fx:factory="observableArrayList">
-                    <String fx:value="3"/>
-                    <String fx:value="4"/>
-                    <String fx:value="5"/>
-                    <String fx:value="6"/>
-                    <String fx:value="7"/>
-                    <String fx:value="8"/>
-                    <String fx:value="9"/>
+                    <String fx:value="检测前2把" />
+                    <String fx:value="检测前3把" />
+                    <String fx:value="检测前4把" />
                 </FXCollections>
             </items>
             <value>
-                <String fx:value="7"/>
+                <String fx:value="检测前2把" />
             </value>
         </ComboBox>
-        <Label fx:id="maxBetCountLabel" text="十选" GridPane.halignment="RIGHT" GridPane.rowIndex="3"/>
-        <CheckBox fx:id="reverseMode" mnemonicParsing="false" text="反" GridPane.columnIndex="2"
-                  GridPane.halignment="RIGHT" GridPane.rowIndex="2" onAction="#handleReverseModeChange"/>
+        <ComboBox fx:id="maxBetCount" onAction="#handleMaxBetCountChange" GridPane.columnIndex="1" GridPane.rowIndex="3" visible="false">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="3" />
+                    <String fx:value="4" />
+                    <String fx:value="5" />
+                    <String fx:value="6" />
+                    <String fx:value="7" />
+                    <String fx:value="8" />
+                    <String fx:value="9" />
+                </FXCollections>
+            </items>
+            <value>
+                <String fx:value="7" />
+            </value>
+        </ComboBox>
+        <Label fx:id="maxBetCountLabel" text="十选" GridPane.halignment="RIGHT" GridPane.rowIndex="3" visible="false"/>
 
     </children>
     <columnConstraints>
-        <ColumnConstraints maxWidth="100.0" minWidth="50.0" prefWidth="75.0"/>
-        <ColumnConstraints maxWidth="100.0" minWidth="50.0" prefWidth="75.0"/>
-        <ColumnConstraints maxWidth="100.0" minWidth="50.0" prefWidth="75.0"/>
-        <ColumnConstraints maxWidth="100.0" minWidth="50.0" prefWidth="75.0"/>
-        <ColumnConstraints maxWidth="100.0" minWidth="50.0" prefWidth="75.0"/>
+        <ColumnConstraints maxWidth="100.0" minWidth="50.0" prefWidth="75.0" />
+        <ColumnConstraints maxWidth="100.0" minWidth="50.0" prefWidth="75.0" />
+        <ColumnConstraints maxWidth="100.0" minWidth="50.0" prefWidth="75.0" />
+        <ColumnConstraints maxWidth="100.0" minWidth="50.0" prefWidth="75.0" />
+        <ColumnConstraints maxWidth="100.0" minWidth="50.0" prefWidth="75.0" />
     </columnConstraints>
     <rowConstraints>
-        <RowConstraints/>
-        <RowConstraints/>
-        <RowConstraints/>
-        <RowConstraints/>
-        <RowConstraints/>
-        <RowConstraints/>
-        <RowConstraints/>
-        <RowConstraints/>
-        <RowConstraints/>
-        <RowConstraints/>
-        <RowConstraints/>
-        <RowConstraints/>
-        <RowConstraints/>
-        <RowConstraints/>
-        <RowConstraints/>
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
     </rowConstraints>
 </GridPane>
