@@ -290,8 +290,13 @@ public class ThirdFourthController {
 
     public void handleSmartSwitchChange(ActionEvent actionEvent) {
         String value = String.valueOf(smartSwitch.getValue());
-        String[] steps = value.split("\\s+")[0].split("-");
-        HttpUtil.doPost(BASE_URL + "/smart_switch", String.format("step1=%s&step2=%s", steps[0], steps[1]));
+        String steps = value.split("\\s+")[0];
+        if (steps.split("-").length > 2) {
+            smartDetectRoundNumber.setVisible(false);
+        } else {
+            smartDetectRoundNumber.setVisible(true);
+        }
+        HttpUtil.doPost(BASE_URL + "/smart_switch", String.format("steps=%s", steps));
     }
 
     public void handleSmartDetectRoundNumberChange(ActionEvent actionEvent) {
