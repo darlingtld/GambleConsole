@@ -131,7 +131,7 @@ public class SMPController {
     }
 
     public void handleSMPModeChange(ActionEvent actionEvent) {
-        if ("傻瓜模式".equals(smpMode.getValue())) {
+        if ("雪球模式".equals(smpMode.getValue())) {
             HttpUtil.doPost(BASE_URL + "/enable/dumb_mode", "");
             toggleChipDisable(true);
         } else {
@@ -154,7 +154,7 @@ public class SMPController {
     }
 
     public void handleDumbChipChange(javafx.scene.input.KeyEvent keyEvent) {
-        if ("傻瓜模式".equals(smpMode.getValue()) && smpChip1.getText().matches("\\d+")) {
+        if ("雪球模式".equals(smpMode.getValue()) && smpChip1.getText().matches("\\d+")) {
             double chip = Double.parseDouble(smpChip1.getText());
             smpChip2.setText(String.valueOf(Double.valueOf(chip / 2.0 * chipLevel.get(1)).intValue()));
             smpChip3.setText(String.valueOf(Double.valueOf(chip / 2.0 * chipLevel.get(2)).intValue()));

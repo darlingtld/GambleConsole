@@ -63,17 +63,17 @@
         <ComboBox fx:id="gambleMode" onAction="#handleModeChange" GridPane.columnSpan="2" GridPane.rowIndex="2">
             <items>
                 <FXCollections fx:factory="observableArrayList">
-                    <String fx:value="傻瓜模式" />
+                    <String fx:value="雪球模式" />
                     <String fx:value="普通模式" />
                     <String fx:value="普通模式(反)" />
                     <String fx:value="探测模式" />
                 </FXCollections>
             </items>
             <value>
-                <String fx:value="傻瓜模式" />
+                <String fx:value="雪球模式" />
             </value>
         </ComboBox>
-        <Text fx:id="smartModeStatus" strokeType="OUTSIDE" strokeWidth="0.0" text="傻瓜模式" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+        <Text fx:id="smartModeStatus" strokeType="OUTSIDE" strokeWidth="0.0" text="雪球模式" GridPane.columnIndex="2" GridPane.rowIndex="2" />
         <ComboBox fx:id="smartSwitch" onAction="#handleSmartSwitchChange" visible="false" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="2">
             <items>
                 <FXCollections fx:factory="observableArrayList">

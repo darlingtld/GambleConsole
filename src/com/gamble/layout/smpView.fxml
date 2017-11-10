@@ -52,15 +52,15 @@
         <ComboBox fx:id="smpMode" onAction="#handleSMPModeChange" GridPane.columnSpan="2" GridPane.rowIndex="4">
             <items>
                 <FXCollections fx:factory="observableArrayList">
-                    <String fx:value="傻瓜模式" />
+                    <String fx:value="雪球模式" />
                     <String fx:value="连凹模式" />
                 </FXCollections>
             </items>
             <value>
-                <String fx:value="傻瓜模式" />
+                <String fx:value="雪球模式" />
             </value>
         </ComboBox>
-        <Text fx:id="modeStatus" strokeType="OUTSIDE" strokeWidth="0.0" text="当前为傻瓜模式" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+        <Text fx:id="modeStatus" strokeType="OUTSIDE" strokeWidth="0.0" text="当前为雪球模式" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="4" />
 
     </children>
     <columnConstraints>

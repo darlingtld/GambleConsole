@@ -220,8 +220,8 @@ public class FifthSixthController {
     }
 
     public void handleModeChange(ActionEvent actionEvent) {
-        if ("傻瓜模式".equals(gambleMode.getValue())) {
-            smartModeStatus.setText("傻瓜模式");
+        if ("雪球模式".equals(gambleMode.getValue())) {
+            smartModeStatus.setText("雪球模式");
             HttpUtil.doPost(BASE_URL + "/enable/dumb_mode", "");
             toggleDisable(true, true);
             toggleChipDisable(true);
@@ -261,7 +261,7 @@ public class FifthSixthController {
     }
 
     public void handleDumbChipChange(javafx.scene.input.KeyEvent keyEvent) {
-        if ("傻瓜模式".equals(gambleMode.getValue()) && smpChip1.getText().matches("\\d+")) {
+        if ("雪球模式".equals(gambleMode.getValue()) && smpChip1.getText().matches("\\d+")) {
             double chip = Double.parseDouble(smpChip1.getText());
             smpChip2.setText(String.valueOf(Double.valueOf(chip / 2.0 * chipLevel.get(1)).intValue()));
             smpChip3.setText(String.valueOf(Double.valueOf(chip / 2.0 * chipLevel.get(2)).intValue()));
