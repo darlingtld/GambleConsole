@@ -224,18 +224,21 @@ public class SeventhEighthController {
         if ("雪球模式".equals(gambleMode.getValue())) {
             smartModeStatus.setText("雪球模式");
             HttpUtil.doPost(BASE_URL + "/enable/dumb_mode", "");
+            HttpUtil.doPost(BASE_URL + "/disable/continuous_mode", "");
             toggleDisable(true, true);
             toggleChipDisable(true);
         } else if ("普通模式".equals(gambleMode.getValue())) {
             smartModeStatus.setText("普通模式");
             HttpUtil.doPost(BASE_URL + "/disable/dumb_mode", "");
             HttpUtil.doPost(BASE_URL + "/disable/smart_mode", "");
+            HttpUtil.doPost(BASE_URL + "/disable/continuous_mode", "");
             HttpUtil.doPost(BASE_URL + "/disable/reverse_mode", "");
             toggleDisable(false, true);
             toggleChipDisable(false);
         } else if ("普通模式(反)".equals(gambleMode.getValue())) {
             smartModeStatus.setText("普通模式(反)");
             HttpUtil.doPost(BASE_URL + "/disable/dumb_mode", "");
+            HttpUtil.doPost(BASE_URL + "/disable/continuous_mode", "");
             HttpUtil.doPost(BASE_URL + "/disable/smart_mode", "");
             HttpUtil.doPost(BASE_URL + "/enable/reverse_mode", "");
             toggleDisable(false, true);
@@ -243,9 +246,17 @@ public class SeventhEighthController {
         } else if ("探测模式".equals(gambleMode.getValue())) {
             smartModeStatus.setText("探测模式");
             HttpUtil.doPost(BASE_URL + "/disable/dumb_mode", "");
+            HttpUtil.doPost(BASE_URL + "/disable/continuous_mode", "");
             HttpUtil.doPost(BASE_URL + "/enable/smart_mode", "");
             toggleDisable(true, false);
             toggleChipDisable(false);
+        } else if ("连关模式".equals(gambleMode.getValue())) {
+            smartModeStatus.setText("连关模式");
+            HttpUtil.doPost(BASE_URL + "/disable/dumb_mode", "");
+            HttpUtil.doPost(BASE_URL + "/disable/smart_mode", "");
+            HttpUtil.doPost(BASE_URL + "/enable/continuous_mode", "");
+            toggleDisable(true, true);
+            toggleChipDisable(true);
         }
     }
 

@@ -67,6 +67,7 @@
                     <String fx:value="普通模式" />
                     <String fx:value="普通模式(反)" />
                     <String fx:value="探测模式" />
+                    <String fx:value="连关模式" />
                 </FXCollections>
             </items>
             <value>
