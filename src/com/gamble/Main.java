@@ -12,7 +12,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("layout/main.fxml"));
-        primaryStage.setTitle("北京赛车");
+        primaryStage.setTitle("幸运飞艇");
         primaryStage.setScene(new Scene(root, 500, 500));
         primaryStage.show();
     }

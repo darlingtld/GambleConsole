@@ -1,27 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<TabPane fx:id="main" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
-    <tabs>
-        <Tab fx:id="configViewTab" text="设置" closable="false">
-            <fx:include fx:id="configView" source="configView.fxml"/>
-        </Tab>
-        <Tab fx:id="smpViewTab" text="双面盘" closable="false">
-            <fx:include fx:id="smpView" source="smpView.fxml"/>
-        </Tab>
-        <Tab fx:id="firstSecondViewTab" text="冠亚军" closable="false">
-            <fx:include fx:id="firstSecondView" source="firstSecondView.fxml"/>
-        </Tab>
-        <Tab fx:id="thirdFourthViewTab" text="三四名" closable="false">
-            <fx:include fx:id="thirdFourthView" source="thirdFourthView.fxml"/>
-        </Tab>
-        <Tab fx:id="fifthSixthViewTab" text="五六名" closable="false">
-            <fx:include fx:id="fifthSixthView" source="fifthSixthView.fxml"/>
-        </Tab>
-        <Tab fx:id="seventhEighthViewTab" text="七八名" closable="false">
-            <fx:include fx:id="seventhEighthView" source="seventhEighthView.fxml"/>
-        </Tab>
-        <Tab fx:id="ninethTenthViewTab" text="九十名" closable="false">
-            <fx:include fx:id="ninethTenthView" source="ninethTenthView.fxml"/>
-        </Tab>
-    </tabs>
+<?import javafx.scene.layout.*?>
+
+<TabPane fx:id="main" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <tabs>
+    <Tab fx:id="configViewTab" closable="false" text="设置">
+      <fx:include fx:id="configView" source="configView.fxml" />
+    </Tab>
+    <Tab fx:id="firstSecondViewTab" closable="false" text="冠亚军">
+      <fx:include fx:id="firstSecondView" source="firstSecondView.fxml">
+        <rowConstraints>
+          <RowConstraints maxHeight="0.0" prefHeight="0.0" />
+          <RowConstraints maxHeight="21.0" prefHeight="21.0" />
+          <RowConstraints maxHeight="0.0" prefHeight="0.0" />
+          <RowConstraints maxHeight="0.0" prefHeight="0.0" />
+          <RowConstraints maxHeight="0.0" prefHeight="0.0" />
+          <RowConstraints maxHeight="0.0" prefHeight="0.0" />
+          <RowConstraints maxHeight="0.0" prefHeight="0.0" />
+          <RowConstraints maxHeight="16.0" prefHeight="16.0" />
+          <RowConstraints maxHeight="22.0" prefHeight="22.0" />
+          <RowConstraints maxHeight="16.0" prefHeight="16.0" />
+          <RowConstraints maxHeight="22.0" prefHeight="22.0" />
+          <RowConstraints maxHeight="21.0" prefHeight="21.0" />
+          <RowConstraints maxHeight="0.0" prefHeight="0.0" />
+          <RowConstraints maxHeight="0.0" prefHeight="0.0" />
+        </rowConstraints>
+      </fx:include>
+    </Tab>
+    <Tab fx:id="thirdFourthViewTab" closable="false" text="三四名">
+      <fx:include fx:id="thirdFourthView" source="thirdFourthView.fxml" />
+    </Tab>
+    <Tab fx:id="fifthSixthViewTab" closable="false" text="五六名">
+      <fx:include fx:id="fifthSixthView" source="fifthSixthView.fxml" />
+    </Tab>
+    <Tab fx:id="seventhEighthViewTab" closable="false" text="七八名">
+      <fx:include fx:id="seventhEighthView" source="seventhEighthView.fxml" />
+    </Tab>
+    <Tab fx:id="ninethTenthViewTab" closable="false" text="九十名">
+      <fx:include fx:id="ninethTenthView" source="ninethTenthView.fxml" />
+    </Tab>
+  </tabs>
 </TabPane>

@@ -82,6 +82,19 @@ public class ThirdFourthController {
 
     private List<Integer> numbersToExclude = new ArrayList<Integer>();
 
+    @FXML
+    public ComboBox pairDetectRoundNumber;
+    @FXML
+    public ComboBox pairGapRoundNumber;
+
+    public void handlePairDetectRoundNumberChange(ActionEvent actionEvent) {
+        HttpUtil.doPost(BASE_URL + "/pair_detect_round_number?number=" + pairDetectRoundNumber.getValue().toString(), "");
+    }
+
+    public void handlePairGapRoundNumberChange(ActionEvent actionEvent) {
+        HttpUtil.doPost(BASE_URL + "/pair_gap_round_number?number=" + pairGapRoundNumber.getValue().toString(), "");
+    }
+
     public void handleEnable(ActionEvent actionEvent) {
         if (enable.isSelected()) {
             enable.setSelected(true);

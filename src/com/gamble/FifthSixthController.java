@@ -83,7 +83,21 @@ public class FifthSixthController {
     @FXML
     public Text message;
 
+    @FXML
+    public ComboBox pairDetectRoundNumber;
+    @FXML
+    public ComboBox pairGapRoundNumber;
+
     private List<Integer> numbersToExclude = new ArrayList<Integer>();
+
+
+    public void handlePairDetectRoundNumberChange(ActionEvent actionEvent) {
+        HttpUtil.doPost(BASE_URL + "/pair_detect_round_number?number=" + pairDetectRoundNumber.getValue().toString(), "");
+    }
+
+    public void handlePairGapRoundNumberChange(ActionEvent actionEvent) {
+        HttpUtil.doPost(BASE_URL + "/pair_gap_round_number?number=" + pairGapRoundNumber.getValue().toString(), "");
+    }
 
     public void handleEnable(ActionEvent actionEvent) {
         if (enable.isSelected()) {
