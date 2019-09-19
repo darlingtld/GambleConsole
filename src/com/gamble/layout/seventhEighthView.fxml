@@ -4,9 +4,11 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
-<GridPane alignment="CENTER" hgap="10.0" prefHeight="102.0" prefWidth="650.0" vgap="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gamble.SeventhEighthController">
+<GridPane alignment="CENTER" hgap="10.0" prefHeight="102.0" prefWidth="650.0" vgap="10.0"
+          xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2"
+          fx:controller="com.gamble.SeventhEighthController">
     <children>
         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="开启下注" GridPane.rowIndex="1"/>
         <ToggleButton fx:id="enable" mnemonicParsing="false" onAction="#handleEnable" text="开启下注"
@@ -58,6 +60,16 @@
                     <String fx:value="18"/>
                     <String fx:value="19"/>
                     <String fx:value="20"/>
+                    <String fx:value="21"/>
+                    <String fx:value="22"/>
+                    <String fx:value="23"/>
+                    <String fx:value="24"/>
+                    <String fx:value="25"/>
+                    <String fx:value="26"/>
+                    <String fx:value="27"/>
+                    <String fx:value="28"/>
+                    <String fx:value="29"/>
+                    <String fx:value="30"/>
                 </FXCollections>
             </items>
             <value>
@@ -83,6 +95,14 @@
                     <String fx:value="15"/>
                     <String fx:value="16"/>
                     <String fx:value="17"/>
+                    <String fx:value="18"/>
+                    <String fx:value="19"/>
+                    <String fx:value="20"/>
+                    <String fx:value="21"/>
+                    <String fx:value="22"/>
+                    <String fx:value="23"/>
+                    <String fx:value="24"/>
+                    <String fx:value="25"/>
                 </FXCollections>
             </items>
             <value>

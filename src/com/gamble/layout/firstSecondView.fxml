@@ -60,6 +60,16 @@
                     <String fx:value="18"/>
                     <String fx:value="19"/>
                     <String fx:value="20"/>
+                    <String fx:value="21"/>
+                    <String fx:value="22"/>
+                    <String fx:value="23"/>
+                    <String fx:value="24"/>
+                    <String fx:value="25"/>
+                    <String fx:value="26"/>
+                    <String fx:value="27"/>
+                    <String fx:value="28"/>
+                    <String fx:value="29"/>
+                    <String fx:value="30"/>
                 </FXCollections>
             </items>
             <value>
@@ -85,6 +95,14 @@
                     <String fx:value="15"/>
                     <String fx:value="16"/>
                     <String fx:value="17"/>
+                    <String fx:value="18"/>
+                    <String fx:value="19"/>
+                    <String fx:value="20"/>
+                    <String fx:value="21"/>
+                    <String fx:value="22"/>
+                    <String fx:value="23"/>
+                    <String fx:value="24"/>
+                    <String fx:value="25"/>
                 </FXCollections>
             </items>
             <value>
